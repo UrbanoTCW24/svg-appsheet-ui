@@ -1,11 +1,187 @@
-<svg width="400" height="120" xmlns="http://www.w3.org/2000/svg">
-  <a xlink:href="https://www.appsheet.com/start/118dd56e-e043-44b9-9746-0ca059991a46#view=Recepcion" target="_blank">
-    <rect x="20" y="20" width="150" height="80" fill="#4CAF50" rx="12" />
-    <text x="45" y="70" font-size="18" fill="#fff" font-family="Arial">Recepción</text>
-  </a>
+<svg width="600" height="350" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definir gradientes y filtros -->
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e3f2fd;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#bbdefb;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+    
+    <!-- Estados con colores -->
+    <linearGradient id="esperando" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffeb3b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fbc02d;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="proceso" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1976d2;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="completado" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#388e3c;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="cancelado" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f44336;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d32f2f;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo principal -->
+  <rect width="600" height="350" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="8"/>
   
-  <a xlink:href="https://www.appsheet.com/start/118dd56e-e043-44b9-9746-0ca059991a46#view=Entrega" target="_blank">
-    <rect x="220" y="20" width="150" height="80" fill="#2196F3" rx="12" />
-    <text x="255" y="70" font-size="18" fill="#fff" font-family="Arial">Entrega</text>
-  </a>
+  <!-- Header -->
+  <rect x="10" y="10" width="580" height="40" fill="url(#headerGrad)" stroke="#90caf9" stroke-width="1" rx="6"/>
+  <text x="300" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1565c0">
+    🔄 Cambio de Estatus - Orden
+  </text>
+  
+  <!-- Información de la orden -->
+  <rect x="20" y="65" width="560" height="60" fill="white" stroke="#e0e0e0" stroke-width="1" rx="4"/>
+  
+  <!-- Datos de la orden -->
+  <text x="30" y="85" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">
+    Orden: #622770
+  </text>
+  <text x="150" y="85" font-family="Arial, sans-serif" font-size="12" fill="#666">
+    IMEI: 3015500000
+  </text>
+  <text x="300" y="85" font-family="Arial, sans-serif" font-size="12" fill="#666">
+    Cliente: Casa Matriz Guatemala
+  </text>
+  
+  <text x="30" y="105" font-family="Arial, sans-serif" font-size="12" fill="#666">
+    Marca: BLACI BL5D
+  </text>
+  <text x="200" y="105" font-family="Arial, sans-serif" font-size="12" fill="#666">
+    Sucursal: PANAMERICANA
+  </text>
+  
+  <!-- Estado actual -->
+  <text x="400" y="105" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e91e63">
+    Estado actual: ESPERANDO REPUESTO
+  </text>
+  
+  <!-- Título de cambio de estado -->
+  <text x="30" y="155" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">
+    Seleccionar nuevo estado:
+  </text>
+  
+  <!-- Botones de estado -->
+  
+  <!-- ESPERANDO REPUESTO -->
+  <g id="estado-esperando" class="status-button" data-status="ESPERANDO REPUESTO" data-color="#fbc02d">
+    <rect x="30" y="170" width="130" height="50" fill="url(#esperando)" stroke="#f57f17" stroke-width="2" rx="6" filter="url(#shadow)"/>
+    <text x="95" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#333">
+      ⏳ ESPERANDO
+    </text>
+    <text x="95" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#333">
+      REPUESTO
+    </text>
+  </g>
+  
+  <!-- EN PROCESO -->
+  <g id="estado-proceso" class="status-button" data-status="EN PROCESO" data-color="#1976d2">
+    <rect x="180" y="170" width="130" height="50" fill="url(#proceso)" stroke="#0d47a1" stroke-width="2" rx="6" filter="url(#shadow)"/>
+    <text x="245" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">
+      🔧 EN PROCESO
+    </text>
+    <text x="245" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">
+      Reparando
+    </text>
+  </g>
+  
+  <!-- COMPLETADO -->
+  <g id="estado-completado" class="status-button" data-status="COMPLETADO" data-color="#388e3c">
+    <rect x="330" y="170" width="130" height="50" fill="url(#completado)" stroke="#1b5e20" stroke-width="2" rx="6" filter="url(#shadow)"/>
+    <text x="395" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">
+      ✅ COMPLETADO
+    </text>
+    <text x="395" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">
+      Terminado
+    </text>
+  </g>
+  
+  <!-- CANCELADO -->
+  <g id="estado-cancelado" class="status-button" data-status="CANCELADO" data-color="#d32f2f">
+    <rect x="480" y="170" width="100" height="50" fill="url(#cancelado)" stroke="#b71c1c" stroke-width="2" rx="6" filter="url(#shadow)"/>
+    <text x="530" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">
+      ❌ CANCELADO
+    </text>
+    <text x="530" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white">
+      Anulado
+    </text>
+  </g>
+  
+  <!-- Área de comentarios -->
+  <text x="30" y="250" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">
+    Comentarios (opcional):
+  </text>
+  
+  <rect x="30" y="260" width="420" height="40" fill="white" stroke="#ccc" stroke-width="1" rx="4"/>
+  <text x="35" y="275" font-family="Arial, sans-serif" font-size="10" fill="#999">
+    Agregar comentarios sobre el cambio de estado...
+  </text>
+  
+  <!-- Botones de acción -->
+  <g id="btn-guardar" class="action-button" data-action="guardar">
+    <rect x="470" y="260" width="80" height="40" fill="#4caf50" stroke="#45a049" stroke-width="1" rx="4" filter="url(#shadow)"/>
+    <text x="510" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">
+      💾 GUARDAR
+    </text>
+  </g>
+  
+  <g id="btn-cancelar" class="action-button" data-action="cancelar">
+    <rect x="30" y="315" width="80" height="25" fill="#757575" stroke="#616161" stroke-width="1" rx="4"/>
+    <text x="70" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">
+      ← Volver
+    </text>
+  </g>
+  
+  <!-- Historial rápido -->
+  <text x="130" y="330" font-family="Arial, sans-serif" font-size="10" fill="#666">
+    Último cambio: 17/07/2025 17:02:14 por Usuario1
+  </text>
+  
+  <!-- Indicador de estado seleccionado -->
+  <circle id="selected-indicator" cx="0" cy="0" r="8" fill="#ff5722" opacity="0" stroke="white" stroke-width="2">
+    <animate attributeName="opacity" values="0;1;0" dur="1s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Estilos CSS embebidos -->
+  <style>
+    <![CDATA[
+    .status-button, .action-button {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .status-button:hover, .action-button:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+    
+    .status-button:active, .action-button:active {
+      transform: translateY(0px);
+    }
+    
+    .status-button.selected {
+      stroke-width: 4;
+      stroke: #ff5722;
+    }
+    
+    .status-button.selected rect {
+      filter: brightness(1.2);
+    }
+    
+    .status-button:hover rect {
+      filter: brightness(1.05);
+    }
+    ]]>
+  </style>
 </svg>
